@@ -69,7 +69,9 @@ public class TopicosController {
 	@Transactional
 	@CacheEvict(value = "listaDeTopicos", allEntries = true)
 	public ResponseEntity<TopicoDto> create(@RequestBody @Valid TopicoForm form, UriComponentsBuilder uriBuilder) { 
+		
 		Topico topico = form.convert(cursoRepository);
+		
 		topicoRepository.save(topico);
 
 		URI uri = uriBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
@@ -94,7 +96,7 @@ public class TopicosController {
 	@PutMapping("/{id}")
 	@Transactional
 	@CacheEvict(value = "listaDeTopicos", allEntries = true)
-	public ResponseEntity<TopicoDto> update(@PathVariable Long id, @RequestBody @Valid UpdateTopicoForm form) { 
+	public ResponseEntity<TopicoDto> update(@PathVariable Long id, @RequestBody @Valid UpdateTopicoForm form) {  
 
 		Optional<Topico> optional = topicoRepository.findById(id);
 
