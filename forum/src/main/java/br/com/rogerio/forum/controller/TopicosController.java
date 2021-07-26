@@ -44,7 +44,7 @@ public class TopicosController {
 	private CursoRepository cursoRepository;
 
 	@GetMapping								// Para utilizar o módulo cache é preciso adicionar a dependência no pom.xml
-	@Cacheable(value = "listaDeTopicos") // Além de declarar esta anotação, também deve habilitar o EnableCaching na
+	@Cacheable(value = "listaDeTopicos")    // Além de declarar esta anotação, também deve habilitar o EnableCaching na
 											// classe main do projeto. O valor da string nesta linha funciona como um
 											// identificador único do cache
 	public Page<TopicoDto> list(@RequestParam(required = false) String nomeCurso, 
