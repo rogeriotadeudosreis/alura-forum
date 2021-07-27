@@ -7,10 +7,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
 @ComponentScan("br.com.rogerio.forum")
 @EnableSpringDataWebSupport // módulo para habilitar o suprote de paginação e ordenação da classe Pageable
 @EnableCaching // módulo para habilitar o cache no controler
+@EnableSwagger2
 public class ForumApplication {
 
 	public static void main(String[] args) {
